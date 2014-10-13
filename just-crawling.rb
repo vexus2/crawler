@@ -13,12 +13,7 @@ Anemone.crawl(urls, depth_limit: 1, skip_query_string: true) do |anemone|
     }
   end
 
-  PATTERN = %r[466298¥/+|466282¥/+|2291657051¥/+|2291905051¥/+]
-
-  #
-  # anemone.on_every_page do |page|
-  #   puts page.url
-  # end
+  PATTERN = %r[466298\/+|466282\/+|2291657051\/+|2291905051\/+]
 
   anemone.on_pages_like(PATTERN) do |page|
     p page.url
