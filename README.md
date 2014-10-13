@@ -1,0 +1,1 @@
+[Rubyによるクローラー開発技法](http://www.sbcr.jp/products/4797380354.html) 写経用
