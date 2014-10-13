@@ -18,5 +18,22 @@ Anemone.crawl(urls, depth_limit: 0) do |anemone|
     subcategory = doc.xpath('//*[@id="zg_listTitle"]/span').text
 
     puts "#{category}/#{subcategory}"
-  end
+
+    # 一般・Kindleストア有料
+    items = doc.xpath('//div[@class="zg_itemRow"]/div[1]/div[2]')
+
+    # Kindleストア無料ストア
+    items += doc.xpath('//div[@class="zg_itemRow"]/div[2]/div[2]')
+
+    items.each{ |item|
+      # 順位
+      puts item.xpath('div[1]/span[1]').text
+
+      # 書籍名
+      puts item.xpath('div["zg_title"]/a').text
+
+      # ASIN
+      puts item.xpath('div["zg_title"]/a').attribute('href').text.match(%r{dp/(.+?)/})[1]
+    }
+    end
 end
